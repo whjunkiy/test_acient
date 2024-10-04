@@ -13,7 +13,7 @@ class City extends Model
 {
     protected $table = 'cities';
     protected $hidden = ['pivot'];
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'slug'];
 
     public static function getCities(){
         $link = 'https://api.hh.ru/areas';
