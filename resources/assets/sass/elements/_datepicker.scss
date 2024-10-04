@@ -1,0 +1,27 @@
+.ui-datepicker-next {
+  position: relative;
+
+  &::before {
+    content: '';
+    @include position(absolute, 50%, 50%, null, null);
+    @include size(10px, 10px);
+    background: $color;
+    transform: translate(-50%, -50%);
+    opacity: .5;
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+  }
+}
+
+.ui-datepicker-prev {
+  position: relative;
+
+  &::before {
+    content: '';
+    @include position(absolute, 50%, 50%, null, null);
+    @include size(10px, 10px);
+    background: $color;
+    transform: translate(-50%, -50%);
+    opacity: .5;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%)
+  }
+}

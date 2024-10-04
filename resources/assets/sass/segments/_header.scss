@@ -1,0 +1,174 @@
+
+.nassain {
+  position: fixed;
+  background: #03a9f4;
+  /* display: none; */
+  padding: 12px 24px 15px 25px;
+  color: #fff;
+  bottom: 0px;
+  right: 1%;
+  z-index: 9;
+  border-radius: 10px 10px 0px 0px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.actlead {
+  text-align: center;
+  padding: 12px 18px 12px 20px;
+  background: #252525;
+  color: #fff;
+}
+
+.blinking {
+  padding-left: 5px;
+  animation: blinkingText 0.7s infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: #777;
+  }
+  49% {
+    color: #cdeb8e;
+  }
+  50% {
+    color: #cdeb8e;
+  }
+  99% {
+    color: #cdeb8e;
+  }
+  100% {
+    color: #cdeb8e;
+  }
+}
+
+.locblock {
+  position: absolute;
+  top: 5px;
+  left: 25px;
+  font-size: 12px;
+  width: 192px;
+  background-size: contain;
+  min-height: 61px;
+
+  &.notify {
+    top: 45px;
+  }
+
+  span {
+    font-size: 23px;
+    line-height: 34px;
+    color: #555;
+    font-weight: bold;
+  }
+}
+
+#change_timezone {
+  cursor: pointer;
+}
+
+
+#order_msginfo {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 50px 25px;
+  background: #207ab7;
+  color: rgb(248 248 248);
+  font-size: 20px;
+  border-radius: 6px;
+  border: 2px solid #b4d7ff;
+  box-shadow: 2px 2px 62px #000;
+  height: 4em;
+  z-index: 99999;
+  text-align: center;
+
+  &.no-orders {
+    display: none;
+  }
+}
+
+#order_msginfo p {
+  font-size: 30px;
+  margin: 0 0 5px 0;
+}
+
+#locationShow {
+  display: inline-block;
+  white-space: nowrap;
+  padding-bottom: 0;
+  position: absolute;
+  height: 25px;
+  left: 225px;
+  box-sizing: unset !important;
+  top: 40px;
+
+  &.notify {
+    top: 79px;
+  }
+}
+
+#locationDropdown {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: 225px;
+  top: 75px;
+
+  &.show {
+    display: block;
+  }
+
+  a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+}
+
+#physiciansShow {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-bottom: 0px;
+  position: relative;
+  top: 3px;
+  height: 25px;
+  left: 225px;
+  box-sizing: unset !important;
+
+}
+
+#physicianDropdown {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: 225px;
+  top: 37px;
+
+  &.show{
+    display: block;
+  }
+
+  a {
+    color: black;
+    padding: 5px 16px;
+    text-decoration: none;
+    display: block;
+  }
+}

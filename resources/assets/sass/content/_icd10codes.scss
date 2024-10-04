@@ -1,0 +1,11 @@
+.icd10codec{
+
+  table.list{
+    width: 50% !important;
+    margin: 0px auto;
+
+    tr > th:first-child, tr > td:first-child {
+      z-index: auto;
+    }
+  }
+}

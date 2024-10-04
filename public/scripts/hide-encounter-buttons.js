@@ -1,0 +1,1 @@
+document.getElementById('plan-form').setAttribute('style', 'display:none;');

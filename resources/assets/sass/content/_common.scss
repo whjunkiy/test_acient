@@ -1,0 +1,194 @@
+.app {
+  table {
+    td {
+      padding: 5px;
+      border: 1px solid #CCC;
+      text-align: left;
+    }
+  }
+}
+
+a#smallBtn {
+  display: inline-block;
+  border: 2px solid #000;
+  color: #000;
+  padding-top: 5px;
+  height: 22px;
+  margin-bottom: 15px
+}
+
+#cbResults table#sortedtable {
+  width: 2222px;
+}
+
+.crs {
+  display: none;
+}
+
+.total {
+  display: none;
+  font-weight: bold;
+  background: #e6f3cc;
+  width: 2222px;
+}
+
+#cbResults table#sortedtable th {
+  padding-right: 10px;
+  width: 4%;
+  z-index: 1;
+}
+
+.total td {
+  width: 4%;
+}
+
+.tablesorter-default {
+  margin-bottom: 1px;
+}
+
+tr > th:first-child, tr > td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 100;
+}
+
+tr.total td {
+  background: #e6f3cc;
+}
+
+.trainglenote {
+  border: 4px solid transparent;
+  border-bottom: 4px solid #f44336;
+  border-right: 5px solid #f44336;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 5px;
+  position: relative;
+}
+
+#data_footer {
+  margin: .5rem auto;
+  padding: 2rem;
+}
+
+#data_footer button {
+  width: inherit;
+  height: inherit;
+  padding: 0.4rem 0.8rem;
+}
+
+form .toolbar .item .date {
+  text-align: center;
+  width: 80px;
+}
+
+form .toolbar .item .time {
+  text-align: center;
+  width: 27px;
+}
+
+form .toolbar .item .lead_source {
+  width: 155px;
+}
+
+form .toolbar .item {
+  margin: 0 2px;
+}
+
+form .toolbar .item, form .toolbar {
+  display: inline-block;
+}
+
+form .toolbar .item label {
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+  display: block;
+}
+
+form .toolbar .item label.bold {
+  font-weight: bold;
+}
+
+form .toolbar .item label.complex {
+  border-bottom: solid 1px #727272;
+}
+
+#download_xlsx {
+  width: auto;
+  padding: 0 3px;
+}
+
+form.inline-form {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.alert {
+  margin-top: 8px;
+}
+
+.alert ul {
+  list-style: none;
+  padding: 6px 8px;
+}
+
+.alert.alert-warning ul {
+  background-color: #f8eac7;
+  border-left: solid 3px #c57a09;
+}
+
+.alert.alert-danger ul {
+  background-color: #f8c7c7;
+  border-left: solid 3px #c50909;
+}
+
+.alert ul li {
+  margin: 4px 0;
+}
+
+.rbs {
+  &__test {
+    &-form {
+      @include flex(stretch, null, nowrap);
+      gap: 10px;
+
+      &.loading {
+        opacity: .5;
+        pointer-events: none;
+      }
+    }
+
+    &-input {
+      min-width: 100px;
+      max-width: 200px;
+    }
+
+    &-btn {
+      @include flex(center, center);
+      height: 19px;
+      background: linear-gradient(to bottom, rgb(205, 235, 142) 0%, rgb(165, 201, 86) 100%);
+      color: $color;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.supply-status {
+background-color: transparent;
+  &.red {
+    background-color: red;
+  }
+
+  &.orange {
+    background-color: orange;
+  }
+
+  &.yellow {
+    background-color: yellow;
+  }
+
+  &.green {
+    background-color: green;
+  }
+}

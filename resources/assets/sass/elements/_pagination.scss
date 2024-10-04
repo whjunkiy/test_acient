@@ -1,0 +1,43 @@
+.pagination {
+  @include flex(center, center);
+
+  &__items {
+    @include flex(center, center);
+  }
+
+  &__item {
+    @include size(20px, 20px);
+    @include flex(center, center);
+    position: relative;
+
+    &.active {
+      font-weight: 600;
+
+      &::before {
+        content: '';
+        @include position(absolute, null, null, 0, -2px);
+        @include size(100%, 2px);
+        background: $color;
+      }
+    }
+  }
+
+  &__prev,
+  &__next {
+    font-weight: 600 !important;
+  }
+
+
+  &__prev {
+    margin-right: 20px;
+  }
+
+  &__next {
+    margin-left: 20px;
+  }
+
+  &__link,
+  &__item {
+    @include font(16px, 500, 1, $color);
+  }
+}

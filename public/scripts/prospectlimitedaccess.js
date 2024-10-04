@@ -1,0 +1,1 @@
+document.getElementsByClassName('editProspectDetailsButton')[0].setAttribute('style', 'display:none;');

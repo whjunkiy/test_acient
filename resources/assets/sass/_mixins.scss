@@ -1,0 +1,160 @@
+// BLOCKS
+
+@mixin inline($valign: middle) {
+  display: inline-block;
+  vertical-align: $valign;
+}
+
+@mixin flex($align: null, $justify: null, $wrap: wrap) {
+  display: flex;
+  @if $align != null {
+    align-items: $align;
+  }
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  @if $wrap != null {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin grid($min: 250px, $max: 1fr, $rg: 10px, $cg: null) {
+  display: grid;
+  gap: $rg $cg;
+  grid-template-columns: repeat(auto-fit, minmax($min, $max));
+}
+
+
+@mixin size($width: null, $height: null) {
+  @if $width != null {
+    width: $width;
+  }
+  @if $height != null {
+    height: $height;
+  }
+}
+
+
+// POSITION
+
+@mixin position($position: absolute, $left: null, $top: null, $right: null, $bottom: null, $index: null) {
+  position: $position;
+  @if $index != null {
+    z-index: $index;
+  }
+  @if $top != null {
+    top: $top;
+  }
+  @if $bottom != null {
+    bottom: $bottom;
+  }
+  @if $left != null {
+    left: $left;
+  }
+  @if $right != null {
+    right: $right;
+  }
+}
+
+
+// FONT
+
+@mixin font($fs: null, $fw: null, $lh: null, $c: null, $ff: null) {
+  @if $ff != null {
+    font-family: $ff;
+  }
+  @if $fs != null {
+    font-size: $fs;
+  }
+  @if $fw != null {
+    font-weight: $fw;
+  }
+  @if $lh != null {
+    line-height: $lh;
+  }
+  @if $c != null {
+    color: $c;
+  }
+}
+
+@mixin text($align: null, $dec: null, $transform: null, $indent: null) {
+  text: {
+    @if $align != null {
+      align: $align;
+    }
+    @if $dec != null {
+      decoration: $dec;
+    }
+    @if $transform != null {
+      transform: $transform;
+    }
+    @if $indent != null {
+      indent: $indent;
+    }
+  }
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+// ANIMATION
+
+@mixin transition($transition: all 0.2s ease 0s) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -ms-transition: $transition;
+  transition: $transition;
+}
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -ms-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin scale($scale) {
+  -webkit-transform: scale($scale);
+  -moz-transform: scale($scale);
+  -ms-transform: scale($scale);
+  -o-transform: scale($scale);
+  transform: scale($scale);
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin grayscale($percent) {
+  -webkit-filter: grayscale($percent);
+  -moz-filter: grayscale($percent);
+  -ms-filter: grayscale($percent);
+  -o-filter: grayscale($percent);
+  filter: grayscale($percent);
+  filter: gray; /* IE 6-9 */
+}
+
+
+// HELPERS
+
+@mixin icon($file) {
+  background: url('../img/icons/#{$file}') no-repeat center;
+}
+
+@mixin bg($file,$color:null,$pos:center) {
+  background: url('../img/backgrounds/#{$file}') no-repeat $color $pos;
+}
+
+@mixin logo($file) {
+  background: url('../img/logos/#{$file}') no-repeat center;
+}

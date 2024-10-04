@@ -1,0 +1,554 @@
+.labs-orders {
+  position: relative;
+
+  &__success {
+    padding: 85px 50px 250px !important;
+    display: none;
+
+    &-amount {
+      @include font(20px, 700);
+      padding: 5px 20px;
+      background: $color-white;
+      border: 1px solid $color;
+    }
+
+    .labs-orders__table {
+      td:first-child {
+        width: 70px !important;
+      }
+
+      td:last-child {
+        font-weight: 700;
+      }
+    }
+
+    .labs-orders__items {
+      gap: 20px;
+      width: 100%;
+    }
+
+    .labs-orders__item {
+      @include flex(stretch);
+      padding: 10px;
+      flex-direction: column;
+    }
+  }
+
+  &__empty {
+    padding: 145px 50px !important;
+  }
+
+  &__success-btns,
+  &__empty-btns {
+    @include flex(center, center);
+    gap: 30px;
+    margin-top: 20px;
+
+    .smallBtn {
+      @include flex(center, center);
+      position: static !important;
+      width: 175px !important;
+    }
+  }
+
+  &__success-text,
+  &__empty-text {
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  &__success-info {
+    @include flex(center, center);
+    flex-direction: column;
+    gap: 40px;
+    font-size: 50px;
+  }
+
+  &__loader {
+    @include size(100%, 100%);
+    @include position(absolute, 0, 0, null, null, 100);
+    @include transition;
+    display: none;
+    background: rgba(0, 0, 0, 0.19);
+
+    img {
+      @include position(fixed, 50%, 50%, null, null);
+      animation: spin 2s linear infinite;
+
+      @keyframes spin {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+    }
+  }
+
+  &__form {
+    @include flex(stretch, center);
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    padding: 100px 50px 280px !important;
+  }
+
+  &__alert {
+    @include font(16px, 600, 1.5);
+    @include flex(center, center);
+    padding: 15px;
+    background: $color-white;
+    border: 2px solid $color;
+    box-sizing: border-box;
+    @include position(absolute, 50%, null, null, 115px);
+    transform: translateX(-50%);
+    width: 89%;
+  }
+
+  &__items {
+    @include flex(stretch);
+    flex-direction: column;
+    gap: 20px;
+
+    .labs-orders__item {
+      &:first-child {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important;
+      }
+
+      &.item--top {
+        &:first-child {
+          .labs-orders__remove {
+            top: 50% !important;
+
+          }
+        }
+      }
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    position: relative;
+
+    &-amount {
+      @include font(16px, 700);
+      text-transform: uppercase;
+      padding-top: 23px;
+      border-top: 1px solid $color;
+      margin-top: 20px;
+
+      strong, span {
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+    }
+
+    &.item--top {
+      margin-top: 10px;
+      padding-top: 30px;
+      border-top: 1px solid $color;
+
+      .labs-orders__remove {
+        top: 55.5%;
+      }
+    }
+
+    .labs-orders__remove {
+      top: 50%;
+    }
+  }
+
+  &__patient {
+    padding: 15px;
+    background: $color-white;
+    grid-column: span 3;
+    position: relative;
+
+    &-items {
+      @include flex(stretch);
+      flex-direction: column;
+    }
+
+    &-title {
+      margin-bottom: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    &-item {
+      @include flex(center);
+      gap: 10px;
+    }
+
+    &-key, &-value {
+      font-size: 12px;
+    }
+
+    &-value {
+      font-weight: 600;
+      text-transform: uppercase;
+
+      &.empty {
+        opacity: .7;
+        font-weight: 400;
+      }
+    }
+
+    &-delete {
+      @include position(absolute, null, 10px, 10px, null);
+      cursor: pointer;
+    }
+    
+    &-error {
+      @include position(absolute,null,10px,45px,null);
+      padding: 7px;
+      background: #ff7e4e;
+      color: #fff;
+      font-size: 13px;
+      border-radius: 5px;
+
+      span {
+        display: block;
+        font-weight: 600;
+      }
+
+      &.hidden {
+        display: none;
+      }
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    &.loading {
+      opacity: .3;
+      pointer-events: none;
+    }
+  }
+
+  &__comment {
+    width: 100% !important;
+    margin-top: 10px;
+    grid-column: span 3;
+  }
+
+  &__block {
+    &-amount {
+      @include flex(stretch);
+      gap: 10px;
+      font-weight: 700;
+      padding: 5px 10px;
+      background: $color-white;
+      grid-column: span 3;
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+
+  &__table {
+    width: 100%;
+
+    &.table--small {
+      height: 35px;
+    }
+
+    &.table--big {
+      grid-column: span 3;
+    }
+
+    &.table--order {
+      min-height: 35px;
+    }
+
+    tr > th:first-child, tr > td:first-child {
+      z-index: 0;
+    }
+  }
+
+  &__wrapper {
+    .smallBtn {
+      position: static !important;
+      width: 100px !important;
+      height: 30px !important;
+      display: block;
+      margin: 15px 0 0 auto;
+    }
+  }
+
+  &__codes {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 15px 20px;
+
+    &.row--xs {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+
+  &__code {
+    @include flex(center, null, nowrap);
+    gap: 5px;
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    input {
+      width: auto !important;
+      position: static;
+      margin: 0;
+    }
+  }
+
+  &__remove {
+    @include position(absolute, -36px, 0, null, null);
+    transform: translateY(-50%);
+    opacity: 0.6;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__prohibition {
+    padding: 105px 0 60px;
+
+    &-info {
+      @include flex(center, center);
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    &-title {
+      @include font(24px, 600, 1, null, null);
+    }
+
+    &-text {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    &-items {
+      @include flex(center, center);
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    &-item {
+      font-size: 16px;
+      padding: 5px;
+      border: 1px solid $color;
+    }
+  }
+
+  &__list {
+    padding: 85px 40px 40px;
+    position: relative;
+
+    &-title {
+      @include font(22px, 700);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    &-btns {
+      @include flex(center, center);
+      gap: 30px;
+      margin-top: 50px;
+
+      .smallBtn {
+        @include flex(center, center);
+        width: 175px !important;
+      }
+    }
+
+    &-status {
+      @include position(absolute, 120px, 0, null, null);
+      @include font(16px, 700);
+      @include flex(center, center);
+      padding: 0 15px;
+      border-bottom: 1px solid $color;
+      border-right: 1px solid $color;
+      background: $color-bg-gray;
+      height: 30px;
+    }
+
+    &-view {
+      @include size(80px, 25px);
+      @include flex(center, center);
+      background: linear-gradient(to bottom, rgba(205, 235, 142, 1) 0%, rgba(165, 201, 86, 1) 100%);
+      font-size: 12px;
+      margin-top: 6px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 2px solid $color;
+      color: #000000;
+      opacity: 1;
+
+      &-btns {
+        @include flex(center);
+        @include position(absolute, null, null, 20px, 15px);
+        gap: 10px;
+      }
+    }
+
+    &-empty {
+      @include font(26px, 700);
+      margin-top: 40px;
+      text-align: center;
+      border: 1px solid $color;
+      padding: 20px 0 25px;
+      background: $color-white;
+      text-transform: uppercase;
+    }
+
+    &-date {
+      @include position(absolute, 0, 0, null, null);
+      @include size(120px, 30px);
+      @include flex(center, center);
+      font-size: 16px;
+      border-bottom: 1px solid $color;
+      border-right: 1px solid $color;
+      background: $color-bg-gray;
+    }
+
+    &-comment {
+      margin-top: 15px;
+
+      p {
+        @include font(16px, 700);
+      }
+    }
+
+    &-items {
+      @include flex(stretch);
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &-item {
+      padding: 60px 20px 15px;
+      border: 1px solid $color;
+      background: $color-white;
+      position: relative;
+    }
+
+    .labs-orders__items {
+      gap: 10px;
+    }
+
+    .labs-orders__item {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .labs-orders__pagination {
+      @include position(absolute, 50%, null, null, 25px);
+      transform: translateX(-50%);
+    }
+  }
+
+  &__amount {
+    @include position(absolute, null, null, 230px, 52px);
+    @include flex(stretch);
+    gap: 10px;
+    font-weight: 700;
+    padding-bottom: 3px;
+
+    &-label {
+      font-size: 20px;
+    }
+
+    &-value {
+      @include flex(center);
+
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__pagination {
+    margin-top: 30px;
+  }
+
+  &__search {
+    position: relative;
+
+    &-results {
+      @include position(absolute, null, null, 0, null, 1);
+      @include flex(stretch);
+      flex-direction: column;
+      width: 100%;
+      background: $color-white;
+    }
+
+    &-result {
+      cursor: pointer;
+      padding: 2px 5px;
+
+      &:hover {
+        background: darken($color-white, 20);
+      }
+    }
+
+    input {
+      &.loading {
+        opacity: .3;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .smallBtn {
+    @include size(null, 35px);
+
+    &.return {
+      @include position(absolute, null, 70px, 50px, null, 1);
+      @include flex(center, center);
+      padding: 0 20px;
+      width: max-content;
+    }
+
+    &.submit {
+      @include position(absolute, null, null, 50px, 50px);
+      width: 145px;
+    }
+  }
+
+  td {
+    padding: 10px !important;
+
+    &:first-child {
+      width: 100px;
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 76px;
+    max-height: 150px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+}

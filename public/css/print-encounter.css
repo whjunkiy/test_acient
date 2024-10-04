@@ -1,0 +1,25 @@
+#header{
+	display:none;
+}
+
+#navSpacer{
+	display:none;
+}
+
+#medBtn{
+	display:none;
+}
+
+@page { margin: 0; }
+
+header, footer{
+	display:none;
+}
+
+#form-header{
+	display:block !important;
+}
+
+#viewEncounterHeader, #viewEncounterSubHeader{
+	background-color:lightgray !important;
+}
